@@ -1,0 +1,44 @@
+<% include partials/header %>
+  <h1>Basic Graph</h1>
+  <div class="chart-container">
+    <canvas id="co2-chart">
+    </canvas>
+  </div>
+  <script>
+    let co2chart = document.getElementById("co2-chart").getContext("2d");
+
+    let chart = new Chart(co2chart, {
+      type : 'line',
+      data : {
+        labels : <%- labels%>,
+        datasets : [{
+          label : 'Filtered Co2',
+          data : <%- datafil %>,
+          backgroundColor : "rgba(24, 221, 247, 0.4)"
+        },
+        {
+          label : 'Unfiltered Co2',
+          data : <%- dataunfil %>,
+          backgroundColor : "rgba(237, 52, 35, 0.4)"
+        }]
+      },
+      options : {
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: '<add units here>'
+              }
+            }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Seconds'
+              }
+            }]
+          }
+        }
+    });
+  </script>
+
+<% include partials/footer %>
