@@ -24,36 +24,29 @@ var unfiltered = []
 var filtered = []
 var db;
 
-function connctdb(req, res, next) {
-  db = new sqlite3.Database('db/data.db', (err) => {
-    if (err) {
-      console.error(err.message);
+
+db = new sqlite3.Database('db/data.db', (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connected to the database.');
+});
+db.serialize(function() {
+
+  db.each("SELECT seconds, unfiltered, filtered FROM co2_data", function(err, row){
+
+    if (err)
+      console.log(err);
+    else {
+      labelArr += "\"" + row.seconds + "\", ";
+      unfiltered.push(row.unfiltered)
+      filtered.push(row.filtered)
     }
-    console.log('Connected to the database.');
-  });
-  next();
-}
-
-function getdata(req, res, next) {
-  db.serialize(function() {
-
-    db.each("SELECT seconds, unfiltered, filtered FROM co2_data", function(err, row){
-
-      if (err)
-        console.log(err);
-      else {
-        labelArr += "\"" + row.seconds + "\" ";
-        unfiltered.push(row.unfiltered)
-        filtered.push(row.filtered)
-      }
-    })
-    db.close();
   })
+  db.close();
+})
 
-  next();
-}
-
-app.get('/', connctdb, getdata, function(req, res) {
+app.get('/', function(req, res) {
   // // fucntions
   // function getLabels() {
   //   var labelArr = "[";
