@@ -1,0 +1,203 @@
+<% include partials/header %>
+<div class="container body" style="margin: 0; padding: 0; width: 100vw">
+  <div class="site-header">
+    <h2>UAV Payload System - APS17G3</h2>
+  </div>
+  <div id="allImages" class="col-sm-2 float-left">
+  </div>
+  <div class="main-stuff col-sm-10">
+    <div class="row">
+        <div class="col-md-5">
+          <div class="chart-fill w3-card-4">
+            <div class="card-title">
+              <h2>Selected<small> image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target: <b>No Found</b></small></h2>
+            </div>
+            <img id="enlargedImage" alt="dog image">
+            </div>
+          </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <div class="chart-fill w3-card-4">
+            <div class="card-title">
+              <h2>CO2<small> readings</small></h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="co2-chart">
+              </canvas>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="chart-fill w3-card-4">
+          <div class="card-title">
+            <h2>Temperature<small> readings</small></h2>
+          </div>
+          <canvas id="temp-chart">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="chart-fill w3-card-4">
+          <div class="card-title">
+            <h2>Humidity<small> readings</small></h2>
+          </div>
+          <canvas id="humidity-chart">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let co2chart = document.getElementById("co2-chart").getContext("2d");
+  let tempchart = document.getElementById("temp-chart").getContext("2d");
+  let humiditychart = document.getElementById("humidity-chart").getContext("2d");
+
+  let chart = new Chart(co2chart, {
+    type : 'line',
+    data : {
+      labels : <%- labels%>,
+      datasets : [{
+        label : 'Filtered Co2',
+        data : <%- datafil %>,
+        backgroundColor : "rgba(24, 221, 247, 0.4)"
+      },
+      {
+        label : 'Unfiltered Co2',
+        data : <%- dataunfil %>,
+        backgroundColor : "rgba(237, 52, 35, 0.4)"
+      }]
+    },
+    options : {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '<add units here>'
+            }
+          }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Seconds'
+            }
+          }]
+        }
+      }
+  });
+
+  let chart2 = new Chart(tempchart, {
+    type : 'line',
+    data : {
+      labels : <%- labels%>,
+      datasets : [{
+        label : 'Filtered Co2',
+        data : <%- datafil %>,
+        backgroundColor : "rgba(24, 221, 247, 0.4)"
+      },
+      {
+        label : 'Unfiltered Co2',
+        data : <%- dataunfil %>,
+        backgroundColor : "rgba(237, 52, 35, 0.4)"
+      }]
+    },
+    options : {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '<add units here>'
+            }
+          }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Seconds'
+            }
+          }]
+        }
+      }
+  });
+
+  let chart3 = new Chart(humiditychart, {
+    type : 'line',
+    data : {
+      labels : <%- labels%>,
+      datasets : [{
+        label : 'Filtered Co2',
+        data : <%- datafil %>,
+        backgroundColor : "rgba(24, 221, 247, 0.4)"
+      },
+      {
+        label : 'Unfiltered Co2',
+        data : <%- dataunfil %>,
+        backgroundColor : "rgba(237, 52, 35, 0.4)"
+      }]
+    },
+    options : {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '<add units here>'
+            }
+          }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Seconds'
+            }
+          }]
+        }
+      }
+  });
+</script>
+<script src="js/images.js"></script>
+<!-- <h1>Basic Graph</h1>
+  // <div class="chart-container">
+  //   <canvas id="co2-chart">
+  //   </canvas>
+  // </div>
+  // <script>
+  //   let co2chart = document.getElementById("co2-chart").getContext("2d");
+  //
+  //   let chart = new Chart(co2chart, {
+  //     type : 'line',
+  //     data : {
+  //       labels : <%- labels%>,
+  //       datasets : [{
+  //         label : 'Filtered Co2',
+  //         data : <%- datafil %>,
+  //         backgroundColor : "rgba(24, 221, 247, 0.4)"
+  //       },
+  //       {
+  //         label : 'Unfiltered Co2',
+  //         data : <%- dataunfil %>,
+  //         backgroundColor : "rgba(237, 52, 35, 0.4)"
+  //       }]
+  //     },
+  //     options : {
+  //       scales: {
+  //         yAxes: [{
+  //           scaleLabel: {
+  //             display: true,
+  //             labelString: '<add units here>'
+  //             }
+  //           }],
+  //         xAxes: [{
+  //           scaleLabel: {
+  //             display: true,
+  //             labelString: 'Seconds'
+  //             }
+  //           }]
+  //         }
+  //       }
+  //   });
+  // </script> -->
+
+<% include partials/footer %>

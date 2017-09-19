@@ -1,0 +1,54 @@
+body {
+  background-color: #efefef;
+}
+
+img {
+  max-height: 90%;
+  max-width: 100%;
+}
+
+#allImages {
+  height: 94vh;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+}
+
+.site-header {
+  align-items: center;
+  padding-left: 40vw;
+  margin: 0 auto;
+  box-shadow: #888 2px 2px 2px;
+}
+
+.row {
+  margin: 0 auto;
+  padding: 0;
+  float: none;
+  height: 47vh;
+  padding-left: 1em;
+}
+
+.col-md-5 {
+  padding-right: 5em;
+  height: inherit;
+  width: 40vw;
+}
+
+.card-title {
+  border-bottom: #ccc 4px solid;
+  margin-bottom: 0.2em;
+  width: 100%;
+}
+.chart-container {
+}
+
+.chart-fill {
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  background-color: white;
+  width: 38vw;
+  height: 44vh;
+  align-content: center;
+}
