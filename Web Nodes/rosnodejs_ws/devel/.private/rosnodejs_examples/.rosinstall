@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/nathan/rosnodejs_ws/devel/.private/rosnodejs_examples/setup.sh

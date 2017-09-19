@@ -1,0 +1,4 @@
+rosnodejs_examples
+/home/nathan/rosnodejs_ws/devel/.private/rosnodejs_examples/share/rosnodejs_examples/cmake/rosnodejs_examplesConfig-version.cmake /home/nathan/rosnodejs_ws/devel/share/rosnodejs_examples/cmake/rosnodejs_examplesConfig-version.cmake
+/home/nathan/rosnodejs_ws/devel/.private/rosnodejs_examples/share/rosnodejs_examples/cmake/rosnodejs_examplesConfig.cmake /home/nathan/rosnodejs_ws/devel/share/rosnodejs_examples/cmake/rosnodejs_examplesConfig.cmake
+/home/nathan/rosnodejs_ws/devel/.private/rosnodejs_examples/lib/pkgconfig/rosnodejs_examples.pc /home/nathan/rosnodejs_ws/devel/lib/pkgconfig/rosnodejs_examples.pc

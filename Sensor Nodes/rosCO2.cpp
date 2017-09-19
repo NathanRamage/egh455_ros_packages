@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  int fd = open("/dev/ttyACM0", O_RDONLY);
+  int fd = open("/dev/tty0", O_RDONLY);
   char co2_reading[15];
 
   //while(1) {
